@@ -25,9 +25,9 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <NavBar />
-      <main>
+      <main className="flex-1">
         <h1 className="text-4xl m-4 font-bold ">Placeholder</h1>
         {user ? (
           <>
@@ -93,7 +93,7 @@ export default function Home() {
           </div>
         )}
       </main>
-      <Footer className="" />
-    </>
+      <Footer className="mt-auto" />
+    </div>
   );
 }
