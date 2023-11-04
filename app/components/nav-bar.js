@@ -2,38 +2,26 @@ import Link from "next/link";
 
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
+import { useUserAuth } from "../_utils/auth-context";
 
 // From CSS Theme changer https://github.com/saadeghi/theme-change
 export default function NavBar() {
+  const { user, firebaseSignOut } = useUserAuth();
+
+  async function handleSignOut() {
+    try {
+      await firebaseSignOut();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     themeChange(false);
   }, []);
 
   return (
     <header className="navbar bg-base-100">
-      <div className="dropdown">
-        <label tabIndex="0" className="btn btn-ghost btn-square">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 stroke-secondary fill-secondary"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
-        </label>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52"
-        >
-          <li className="menu-title">Test</li>
-        </ul>
-      </div>
-
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost normal-case text-xl">
           Stitch Tracker
@@ -74,6 +62,29 @@ export default function NavBar() {
           </button>
         </ul>
       </div>
+      {user ? (
+        <div className="dropdown">
+          <label tabIndex="0" className="btn btn-ghost btn-square avatar">
+            <figure className="w-8 mask mask-squircle">
+              <img src={user.photoURL} alt="user avatar" />
+            </figure>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52 right-0 mr-2"
+          >
+            <li aria-label="Sign Out" onClick={handleSignOut}>
+              <a>Sign Out</a>
+            </li>
+            <li aria-label="Inventory">
+              <Link href="/">Inventory</Link>
+            </li>
+            <li aria-label="Projects">
+              <Link href="/">Projects</Link>
+            </li>
+          </ul>
+        </div>
+      ) : null}
     </header>
   );
 }
