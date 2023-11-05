@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 import { useEffect } from "react";
@@ -11,6 +13,7 @@ export default function NavBar() {
   async function handleSignOut() {
     try {
       await firebaseSignOut();
+      window.location.href = "/"; //quick fix to redirect to home page on sign out
     } catch (error) {
       console.log(error);
     }
@@ -23,12 +26,20 @@ export default function NavBar() {
   return (
     <header className="navbar bg-base-100">
       <div className="flex-1">
-        <Link href="/" className="btn btn-ghost normal-case text-xl">
+        <Link
+          href="/"
+          className="btn btn-ghost normal-case text-xl"
+          aria-label="Go to homepage"
+        >
           Stitch Tracker
         </Link>
       </div>
       <div className="dropdown">
-        <label tabIndex="0" className="btn btn-ghost btn-square">
+        <label
+          tabIndex="0"
+          className="btn btn-ghost btn-square"
+          aria-label="Theme Selector"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
@@ -42,29 +53,58 @@ export default function NavBar() {
           tabIndex={0}
           className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52 right-0 mr-2"
         >
-          <button className="btn btn-sm btn-ghost" data-set-theme="dracula">
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="dracula"
+            aria-label="default theme"
+          >
             Default
           </button>
-          <button className="btn btn-sm btn-ghost" data-set-theme="cyberpunk">
-            Cyberpunk
-          </button>
-          <button className="btn btn-sm btn-ghost" data-set-theme="dark">
-            Dark
-          </button>
-          <button className="btn btn-sm btn-ghost" data-set-theme="cupcake">
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="cupcake"
+            aria-label="light theme"
+          >
             Light
           </button>
-          <button className="btn btn-sm btn-ghost" data-set-theme="night">
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="dark"
+            aria-label="dark theme"
+          >
+            Dark
+          </button>
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="cyberpunk"
+            aria-label="cyberpunk theme"
+          >
+            Cyberpunk
+          </button>
+
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="night"
+            aria-label="dark blue theme"
+          >
             Dark Blue
           </button>
-          <button className="btn btn-sm btn-ghost" data-set-theme="forest">
+          <button
+            className="btn btn-sm btn-ghost"
+            data-set-theme="forest"
+            aria-label="dark green theme"
+          >
             Green
           </button>
         </ul>
       </div>
       {user ? (
         <div className="dropdown">
-          <label tabIndex="0" className="btn btn-ghost btn-square avatar">
+          <label
+            tabIndex="0"
+            className="btn btn-ghost btn-square avatar"
+            aria-label="User menu"
+          >
             <figure className="w-8 mask mask-squircle">
               <img src={user.photoURL} alt="user avatar" />
             </figure>
@@ -73,14 +113,17 @@ export default function NavBar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-200 rounded-box w-52 right-0 mr-2"
           >
-            <li aria-label="Sign Out" onClick={handleSignOut}>
-              <a>Sign Out</a>
+            <li aria-label="User Page">
+              <Link href="/user">User Page</Link>
             </li>
             <li aria-label="Inventory">
-              <Link href="/">Inventory</Link>
+              <Link href="/inventory">Inventory</Link>
             </li>
             <li aria-label="Projects">
-              <Link href="/">Projects</Link>
+              <Link href="/projects">Projects</Link>
+            </li>
+            <li aria-label="Sign Out" onClick={handleSignOut}>
+              <a>Sign Out</a>
             </li>
           </ul>
         </div>
