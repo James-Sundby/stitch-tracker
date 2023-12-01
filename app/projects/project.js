@@ -1,13 +1,13 @@
 export default function Project({
   id,
-  name,
-  quantity,
-  category,
+  projectName,
+  startDate,
+  endDate,
   onDelete,
   onSelect,
 }) {
   const handleClick = () => {
-    onSelect(name);
+    onSelect(projectName);
   };
 
   return (
@@ -23,13 +23,11 @@ export default function Project({
                 className="checkbox checkbox-lg checkbox-primary mr-2"
                 onClick={(e) => e.stopPropagation()}
               />
-              {name}
+              {projectName}
             </header>
             <article>
-              Pick up <span className="font-bold text-primary">{quantity}</span>{" "}
-              in{" "}
               <span className="font-bold text-primary capitalize">
-                {category}
+                {startDate}
               </span>
             </article>
           </div>
@@ -40,13 +38,6 @@ export default function Project({
               className="btn btn-primary hidden md:inline-flex"
             >
               Remove
-            </button>
-            <button
-              aria-label="Delete item"
-              onClick={(e) => onDelete(id, e)}
-              className="btn btn-primary md:hidden"
-            >
-              X
             </button>
           </div>
         </div>
