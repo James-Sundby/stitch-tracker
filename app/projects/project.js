@@ -4,38 +4,26 @@ export default function Project({
   startDate,
   endDate,
   onDelete,
-  onSelect,
 }) {
-  const handleClick = () => {
-    onSelect(projectName);
-  };
-
   return (
-    <li onClick={handleClick}>
-      <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active`}
-      >
+    <li>
+      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active">
         <div className="card-body flex-row justify-between">
           <div>
-            <header className="card-title text-2xl pb-2">
-              <input
-                type="checkbox"
-                className="checkbox checkbox-lg checkbox-primary mr-2"
-                onClick={(e) => e.stopPropagation()}
-              />
-              {projectName}
-            </header>
+            <header className="card-title text-2xl pb-2">{projectName}</header>
             <article>
-              <span className="font-bold text-primary capitalize">
-                {startDate}
-              </span>
+              Start Date:{" "}
+              <span className="font-bold capitalize">{startDate}</span>
+            </article>
+            <article>
+              End Date: <span className="font-bold capitalize"></span>
             </article>
           </div>
           <div className="flex items-center">
             <button
-              aria-label="Delete item"
+              aria-label="Delete project"
               onClick={(e) => onDelete(id, e)}
-              className="btn btn-primary hidden md:inline-flex"
+              className="btn btn-error "
             >
               Remove
             </button>

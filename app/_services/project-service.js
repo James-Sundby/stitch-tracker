@@ -29,8 +29,11 @@ export const getProjects = async (userId) => {
 
 export const addProject = async (userId, project) => {
   try {
-    if (!project.startDate || !project.name) {
-      throw new Error("The item object is missing required fields.");
+    if (!project.startDate) {
+      throw new Error("The projects is missing start date.");
+    }
+    if (!project.projectName) {
+      throw new Error("The projects is missing name.");
     }
 
     const itemsCollection = collection(db, "users", userId, "projects");
@@ -44,7 +47,7 @@ export const addProject = async (userId, project) => {
 
 export const removeProject = async (userId, projectId) => {
   try {
-    const itemRef = doc(db, "users", userId, "project", projectId);
+    const itemRef = doc(db, "users", userId, "projects", projectId);
     await deleteDoc(itemRef);
     return projectId;
   } catch (error) {

@@ -4,12 +4,19 @@ import { useState } from "react";
 import Project from "./project.js";
 
 export default function ProjectList({ projects, onDelete }) {
-  const [sortBy, setSortBy] = useState("colorCode");
+  const [sortBy, setSortBy] = useState("name");
   const projectsData = [...projects];
 
   if (sortBy === "name") {
     projectsData.sort((a, b) => a.projectName.localeCompare(b.projectName));
-  } else projectsData.sort((a, b) => a.startDate.localeCompare(b.startDate));
+  } else if (sortBy === "date") {
+    projectsData.sort((a, b) => {
+      if (a.startDate === b.startDate) {
+        return a.projectName.localeCompare(b.projectName);
+      }
+      return a.startDate.localeCompare(b.startDate);
+    });
+  }
 
   return (
     <>
@@ -19,7 +26,7 @@ export default function ProjectList({ projects, onDelete }) {
             className="join-item btn flex-1"
             type="radio"
             name="sort-options"
-            aria-label="Sort by Name"
+            aria-label="Sort by Project Name"
             onClick={() => setSortBy("name")}
             defaultChecked
           />
@@ -28,7 +35,7 @@ export default function ProjectList({ projects, onDelete }) {
             type="radio"
             name="sort-options"
             aria-label="Sort by Start Date"
-            onClick={() => setSortBy("startDate")}
+            onClick={() => setSortBy("date")}
           />
         </div>
       </div>
@@ -37,8 +44,9 @@ export default function ProjectList({ projects, onDelete }) {
           <Project
             key={project.id}
             id={project.id}
-            name={project.name}
+            projectName={project.projectName}
             startDate={project.startDate}
+            onDelete={onDelete}
           />
         ))}
       </ul>

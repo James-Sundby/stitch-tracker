@@ -6,7 +6,7 @@ import {
   getProjects,
   addProject,
   removeProject,
-} from "../_services/inventory-service";
+} from "../_services/project-service";
 
 import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
@@ -21,7 +21,7 @@ export default function Projects() {
     try {
       const newProjectId = await addProject(user.uid, project);
       const newProject = { ...project, id: newProjectId };
-      setItems([...projects, newProject]);
+      setProjects([...projects, newProject]);
     } catch (error) {
       console.error("Error adding project: ", error);
     }
@@ -51,6 +51,7 @@ export default function Projects() {
       loadProjects();
     }
   }, [user]);
+
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
