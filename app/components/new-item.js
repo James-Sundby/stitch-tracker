@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import colorData from "../_data/colorInfo";
 
 export default function NewItem({ onAddItem }) {
   const [colorCode, setColorCode] = useState("");
@@ -11,13 +12,28 @@ export default function NewItem({ onAddItem }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newItem = { colorCode, name, quantity, category };
+    // Find the selected category object from the colorData
+    const selectedCategory = colorData.find(
+      (item) => item.category === category
+    );
+
+    // Extract the color code based on the selected category
+    const temp = selectedCategory ? selectedCategory.categoryColor : "";
+
+    const newItem = {
+      colorCode,
+      name,
+      quantity,
+      category,
+      categoryColor: temp,
+    };
+
     onAddItem(newItem);
 
     setColorCode("");
     setName("");
     setQuantity(1);
-    setCategory("reds");
+    setCategory("red");
   };
 
   const handleColorCodeChange = (event) => {
@@ -43,7 +59,7 @@ export default function NewItem({ onAddItem }) {
         <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary flex items-center">
           Add to Inventory
         </div>
-        <div className="collapse-content" onSubmit={handleSubmit}>
+        <div className="collapse-content">
           <form className="card-body p-0 mt-4" onSubmit={handleSubmit}>
             <input
               placeholder="DMC Code"

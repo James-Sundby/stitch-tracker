@@ -1,0 +1,46 @@
+[
+  {
+    "category": "red",
+    "categoryColor": "#ff00ff"
+  },
+  {
+    "category": "orange",
+    "categoryColor": "#ff7e00"
+  },
+  {
+    "category": "yellow",
+    "categoryColor": "#ffed4a"
+  },
+  {
+    "category": "green",
+    "categoryColor": " #059669"
+  },
+  {
+    "category": "blue",
+    "categoryColor": "#3b82f6"
+  },
+  {
+    "category": "purple",
+    "categoryColor": "#6b46c1"
+  },
+  {
+    "category": "pink",
+    "categoryColor": "#ff00ff"
+  },
+  {
+    "category": "brown",
+    "categoryColor": "#4F3A2D"
+  },
+  {
+    "category": "gray",
+    "categoryColor": "#9CA3AF"
+  },
+  {
+    "category": "metallic",
+    "categoryColor": "#a8a8a8"
+  },
+  {
+    "category": "neutral",
+    "categoryColor": "#fff0db"
+  }
+]

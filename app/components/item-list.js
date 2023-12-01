@@ -48,6 +48,7 @@ export default function ItemList({ items, onDelete }) {
             name={item.name}
             quantity={item.quantity}
             category={item.category}
+            categoryColor={item.categoryColor}
             onDelete={onDelete}
           />
         ))}

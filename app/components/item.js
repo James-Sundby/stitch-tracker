@@ -4,12 +4,13 @@ export default function Item({
   name,
   quantity,
   category,
+  categoryColor,
   onDelete,
 }) {
   return (
     <li>
       <div
-        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active border-l-8 border-${category}-500`}
+        className={`card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active border-l-8 border-[${categoryColor}]`}
       >
         <div className="card-body flex-row justify-between">
           <div>
