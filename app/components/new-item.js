@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import colorData from "../_data/colorInfo";
 
 export default function NewItem({ onAddItem }) {
   const [colorCode, setColorCode] = useState("");
@@ -12,22 +11,7 @@ export default function NewItem({ onAddItem }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Find the selected category object from the colorData
-    const selectedCategory = colorData.find(
-      (item) => item.category === category
-    );
-
-    // Extract the color code based on the selected category
-    const temp = selectedCategory ? selectedCategory.categoryColor : "";
-
-    const newItem = {
-      colorCode,
-      name,
-      quantity,
-      category,
-      categoryColor: temp,
-    };
-
+    const newItem = { colorCode, name, quantity, category };
     onAddItem(newItem);
 
     setColorCode("");
@@ -94,17 +78,17 @@ export default function NewItem({ onAddItem }) {
                 className="select select-bordered flex-grow"
               >
                 <option disabled>Select a Category</option>
-                <option value="red">Reds</option>
-                <option value="orange">Oranges</option>
-                <option value="yellow">Yellows</option>
-                <option value="green">Greens</option>
-                <option value="blue">Blues</option>
-                <option value="purple">Purples</option>
-                <option value="pink">Pinks</option>
-                <option value="brown">Browns</option>
-                <option value="gray">Grayscale</option>
-                <option value="metallic">Metallics</option>
-                <option value="neutral">Neutrals</option>
+                <option value="Reds">Reds</option>
+                <option value="Oranges">Oranges</option>
+                <option value="Yellows">Yellows</option>
+                <option value="Greens">Greens</option>
+                <option value="Blues">Blues</option>
+                <option value="Purples">Purples</option>
+                <option value="Pinks">Pinks</option>
+                <option value="Browns">Browns</option>
+                <option value="Blacks/grays/whites">Blacks/Grays/Whites</option>
+                <option value="Metallics">Metallics</option>
+                <option value="Neutrals">Neutrals</option>
               </select>
             </div>
             <button type="submit" className="btn btn-primary flex-1 border-">

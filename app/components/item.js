@@ -12,9 +12,12 @@ export default function Item({
       <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active">
         <div className="card-body flex-row justify-between">
           <div>
-            <header className="card-title text-2xl pb-2 ">{colorCode}</header>
-            <p>{name}</p>
-            <p>Qty: {quantity}</p>
+            <header className="card-title text-2xl pb-2 ">
+              {colorCode} {name}
+            </header>
+            <p>
+              Qty: {quantity} | Category: {category}
+            </p>
           </div>
           <div className="flex items-center">
             <button

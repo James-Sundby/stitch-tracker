@@ -10,10 +10,10 @@ import {
 
 import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
-import NewProject from "./new-project";
-import ProjectList from "./project-list";
+import NewProject from "../components/new-project";
+import ProjectList from "../components/project-list";
 
-export default function Projects() {
+export default function Page() {
   const { user } = useUserAuth();
   const [projects, setProjects] = useState([]);
 

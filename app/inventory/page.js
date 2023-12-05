@@ -13,7 +13,7 @@ import Footer from "../components/footer";
 import NewItem from "../components/new-item";
 import ItemList from "../components/item-list";
 
-export default function Inventory() {
+export default function Page() {
   const { user } = useUserAuth();
   const [items, setItems] = useState([]);
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Project from "./project.js";
+import Project from "./project";
 
 export default function ProjectList({ projects, onDelete }) {
   const [sortBy, setSortBy] = useState("name");
