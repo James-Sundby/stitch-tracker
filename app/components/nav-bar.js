@@ -119,8 +119,8 @@ export default function NavBar() {
             <li aria-label="Inventory">
               <Link href="/inventory">Inventory</Link>
             </li>
-            <li aria-label="Projects">
-              <Link href="/projects">Projects</Link>
+            <li aria-label="Shopping List">
+              <Link href="/shoppinglist">Shopping List</Link>
             </li>
             <li aria-label="Sign Out" onClick={handleSignOut}>
               <a>Sign Out</a>

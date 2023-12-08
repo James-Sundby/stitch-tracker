@@ -41,7 +41,7 @@ export default function NewItem({ onAddItem }) {
       <div className="collapse bg-base-200 collapse-arrow">
         <input type="checkbox" className="peer" />
         <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary flex items-center">
-          Add to Inventory
+          Add Item
         </div>
         <div className="collapse-content">
           <form className="card-body p-0 mt-4" onSubmit={handleSubmit}>
