@@ -1,6 +1,6 @@
 export default function UserStats({ inventoryCount, shoppingListCount }) {
   return (
-    <div className="stats shadow max-w-lg mx-2 mb-2">
+    <div className="stats shadow max-w-lg mx-2 mb-2 bg-base-200">
       <div className="stat">
         <div className="stat-figure text-primary">
           <svg
@@ -13,7 +13,7 @@ export default function UserStats({ inventoryCount, shoppingListCount }) {
         </div>
         <div className="stat-title">You have</div>
         <div className="stat-value text-primary">{inventoryCount}</div>
-        <div className="stat-desc">Floss in inventory</div>
+        <div className="stat-desc">Floss in your inventory</div>
       </div>
       <div className="stat">
         <div className="stat-figure text-secondary">
@@ -27,7 +27,7 @@ export default function UserStats({ inventoryCount, shoppingListCount }) {
         </div>
         <div className="stat-title">You need</div>
         <div className="stat-value text-secondary">{shoppingListCount}</div>
-        <div className="stat-desc">Floss in cart</div>
+        <div className="stat-desc">Floss in your cart</div>
       </div>
     </div>
   );

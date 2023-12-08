@@ -10,7 +10,7 @@ import {
 import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
 import UserStats from "../components/user-stats";
-import Redirect from "../components/redirect";
+import Redirect from "../_services/redirect";
 
 export default function User() {
   const { user } = useUserAuth();

@@ -33,22 +33,16 @@ export default function Home() {
             <h1 className="text-7xl font-bold">Welcome</h1>
             <p className="py-6">
               Stitch Tracker is a free, web-based tool for cross-stitchers
-              to manage their inventory of floss. It also allows the creation
-              of a shopping list for future projects.
+              to manage their inventory of floss.
             </p>
             {user ? (
-              <div>
-                <button className="btn btn-primary mx-1">
-                  <Link href="/user">User Page</Link>
-                </button>
-                <button
-                  aria-label="Sign Out"
-                  onClick={handleSignOut}
-                  className="btn btn-primary mx-1"
-                >
-                  Sign Out
-                </button>
-              </div>
+              <button
+                aria-label="Sign Out"
+                onClick={handleSignOut}
+                className="btn btn-primary"
+              >
+                Sign Out
+              </button>
             ) : (
               <>
                 <button

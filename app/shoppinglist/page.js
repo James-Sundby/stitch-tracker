@@ -13,7 +13,7 @@ import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
 import NewItem from "../components/new-item";
 import ShoppingList from "../components/shopping-list";
-import Redirect from "../components/redirect";
+import Redirect from "../_services/redirect";
 
 export default function Page() {
   const { user } = useUserAuth();
