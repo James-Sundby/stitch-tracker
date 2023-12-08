@@ -13,6 +13,7 @@ import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
 import NewItem from "../components/new-item";
 import ShoppingList from "../components/shopping-list";
+import Redirect from "../components/redirect";
 
 export default function Page() {
   const { user } = useUserAuth();
@@ -91,7 +92,7 @@ export default function Page() {
     }
   }, [user]);
 
-  return (
+  return user ? (
     <div className="flex flex-col min-h-screen items-center">
       <NavBar />
       <main className="flex-1">
@@ -121,5 +122,7 @@ export default function Page() {
       </main>
       <Footer className="mt-auto" />
     </div>
+  ) : (
+    <Redirect />
   );
 }

@@ -10,6 +10,7 @@ import {
 import NavBar from "../components/nav-bar";
 import Footer from "../components/footer";
 import UserStats from "../components/user-stats";
+import Redirect from "../components/redirect";
 
 export default function User() {
   const { user } = useUserAuth();
@@ -33,7 +34,7 @@ export default function User() {
     }
   }, [user]);
 
-  return (
+  return user ? (
     <div className="flex flex-col min-h-screen items-center">
       <NavBar />
       <main className="flex-1">
@@ -49,5 +50,7 @@ export default function User() {
       </main>
       <Footer className="mt-auto" />
     </div>
+  ) : (
+    <Redirect />
   );
 }

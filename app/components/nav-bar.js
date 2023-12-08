@@ -64,23 +64,24 @@ export default function NavBar() {
           Stitch Tracker
         </Link>
       </div>
-
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-2">
-          <li aria-label="User Page">
-            <Link href="/user">User Page</Link>
-          </li>
-          <li aria-label="Inventory">
-            <Link href="/inventory">Inventory</Link>
-          </li>
-          <li aria-label="Shopping List">
-            <Link href="/shoppinglist">Shopping List</Link>
-          </li>
-          <li aria-label="Sign Out" onClick={handleSignOut}>
-            <a>Sign Out</a>
-          </li>
-        </ul>
-      </div>
+      {user ? (
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 gap-2">
+            <li aria-label="User Page">
+              <Link href="/user">User Page</Link>
+            </li>
+            <li aria-label="Inventory">
+              <Link href="/inventory">Inventory</Link>
+            </li>
+            <li aria-label="Shopping List">
+              <Link href="/shoppinglist">Shopping List</Link>
+            </li>
+            <li aria-label="Sign Out" onClick={handleSignOut}>
+              <a>Sign Out</a>
+            </li>
+          </ul>
+        </div>
+      ) : null}
 
       <div className="navbar-end">
         <div className="dropdown">
