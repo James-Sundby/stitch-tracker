@@ -32,9 +32,9 @@ export default function Home() {
           <section className="max-w-md">
             <h1 className="text-7xl font-bold">Welcome</h1>
             <p className="py-6">
-              Stitch Tracker is a free, web-based tool for cross-stitchers to
-              manage their ongoing projects and inventory of floss. It is
-              currently in development and will be available soon.
+              Stitch Tracker is a free, web-based tool for cross-stitchers
+              to manage their inventory of floss. It also allows the creation
+              of a shopping list for future projects.
             </p>
             {user ? (
               <div>
