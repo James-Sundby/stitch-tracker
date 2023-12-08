@@ -99,3 +99,25 @@ export const removeFromList = async (userId, itemId) => {
     window.alert("Error removing item.");
   }
 };
+
+export const getInventoryCount = async (userId) => {
+  try {
+    const itemsCollection = collection(db, "users", userId, "items");
+    const querySnapshot = await getDocs(itemsCollection);
+    return querySnapshot.size;
+  } catch (error) {
+    console.error("Error retrieving inventory count from database.", error);
+    window.alert("Error retrieving inventory count from database.");
+  }
+};
+
+export const getShoppingListCount = async (userId) => {
+  try {
+    const itemsCollection = collection(db, "users", userId, "shoppingList");
+    const querySnapshot = await getDocs(itemsCollection);
+    return querySnapshot.size;
+  } catch (error) {
+    console.error("Error retrieving inventory count from database.", error);
+    window.alert("Error retrieving inventory count from database.");
+  }
+};

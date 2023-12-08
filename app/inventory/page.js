@@ -67,7 +67,7 @@ export default function Page() {
   }, [user]);
 
   return (
-    <div className="flex flex-col min-h-screen md:items-center">
+    <div className="flex flex-col min-h-screen items-center">
       <NavBar />
       <main className="flex-1">
         <h1 className="text-4xl m-4 font-bold ">Inventory</h1>

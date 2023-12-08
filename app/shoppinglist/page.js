@@ -84,7 +84,7 @@ export default function Page() {
   }, [user]);
 
   return (
-    <div className="flex flex-col min-h-screen md:items-center">
+    <div className="flex flex-col min-h-screen items-center">
       <NavBar />
       <main className="flex-1">
         <h1 className="text-4xl m-4 font-bold ">Shopping List</h1>
@@ -92,7 +92,7 @@ export default function Page() {
         {showAlert && (
           <div
             role="alert"
-            className="alert shadow-lg mx-2 mb-2 w-auto max-w-lg md:hidden alert-info"
+            className="alert alert-info shadow-lg mx-2 mb-2 w-auto max-w-lg md:hidden "
           >
             <div className="">{alertMessage}</div>
           </div>

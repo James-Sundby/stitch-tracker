@@ -27,14 +27,14 @@ export default function Item({
           </div>
           <div className="flex items-center gap-2">
             <button
-              aria-label="Purchase"
+              aria-label="Bought"
               onClick={(e) => handlePurchase(e)}
               className="btn btn-success hidden md:inline-flex "
             >
-              Purchased
+              Bought
             </button>
             <button
-              aria-label="Delete item"
+              aria-label="Bought"
               onClick={(e) => onDelete(id, e)}
               className="btn btn-success  md:hidden"
             >
