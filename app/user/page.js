@@ -43,10 +43,12 @@ export default function User() {
         ) : (
           <p className="text-4xl m-4 font-bold ">Welcome</p>
         )}
-        <UserStats
-          inventoryCount={inventoryCount}
-          shoppingListCount={shoppingListCount}
-        />
+        <div className="flex justify-center">
+          <UserStats
+            inventoryCount={inventoryCount}
+            shoppingListCount={shoppingListCount}
+          />
+        </div>
       </main>
       <Footer className="mt-auto" />
     </div>
