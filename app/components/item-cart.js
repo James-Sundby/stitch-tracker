@@ -29,16 +29,30 @@ export default function Item({
             <button
               aria-label="Purchase"
               onClick={(e) => handlePurchase(e)}
-              className="btn btn-success "
+              className="btn btn-success hidden md:inline-flex "
             >
               Purchased
             </button>
             <button
               aria-label="Delete item"
               onClick={(e) => onDelete(id, e)}
-              className="btn btn-error "
+              className="btn btn-success  md:hidden"
+            >
+              Buy
+            </button>
+            <button
+              aria-label="Delete item"
+              onClick={(e) => onDelete(id, e)}
+              className="btn btn-error hidden md:inline-flex "
             >
               Remove
+            </button>
+            <button
+              aria-label="Delete item"
+              onClick={(e) => onDelete(id, e)}
+              className="btn btn-error md:hidden"
+            >
+              X
             </button>
           </div>
         </div>

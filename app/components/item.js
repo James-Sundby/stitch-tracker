@@ -23,9 +23,16 @@ export default function Item({
             <button
               aria-label="Delete item"
               onClick={(e) => onDelete(id, e)}
-              className="btn btn-error "
+              className="btn btn-error hidden md:inline-flex"
             >
               Remove
+            </button>{" "}
+            <button
+              aria-label="Delete item"
+              onClick={(e) => onDelete(id, e)}
+              className="btn btn-error md:hidden"
+            >
+              X
             </button>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function Home() {
   async function handleSignIn() {
     try {
       await gitHubSignIn();
-      window.location.href = "/user"; //quick fix to redirect to home page on sign out
+      window.location.href = "/user"; //quick fix to redirect to home page on sign in
     } catch (error) {
       console.log(error);
     }

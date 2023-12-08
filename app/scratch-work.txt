@@ -1,4 +1,0 @@
-id num = DMC colour code
-colour category (broad -> user defined-ish)
-colour name
-qty + full vs partial
