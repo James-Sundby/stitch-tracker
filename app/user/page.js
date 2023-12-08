@@ -39,7 +39,7 @@ export default function User() {
       <NavBar />
       <main className="flex-1">
         {user.displayName != null ? (
-          <p className="text-4xl m-4 font-bold ">Welcome {user.displayName}</p>
+          <p className="text-4xl m-4 font-bold ">Welcome <span className="text-primary">{user.displayName}</span></p>
         ) : (
           <p className="text-4xl m-4 font-bold ">Welcome</p>
         )}
