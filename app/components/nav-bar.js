@@ -13,7 +13,6 @@ export default function NavBar() {
   async function handleSignOut() {
     try {
       await firebaseSignOut();
-      window.location.href = "/"; //quick fix to redirect to home page on sign out
     } catch (error) {
       console.log(error);
     }

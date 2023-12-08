@@ -37,7 +37,7 @@ export default function Home() {
               currently in development and will be available soon.
             </p>
             {user ? (
-              <div className="">
+              <div>
                 <button className="btn btn-primary mx-1">
                   <Link href="/user">User Page</Link>
                 </button>
