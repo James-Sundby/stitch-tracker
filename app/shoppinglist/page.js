@@ -19,19 +19,17 @@ export default function Page() {
   const [items, setItems] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [showWarning, setShowWarning] = useState(false);
+  const [warningMessage, setWarningMessage] = useState("");
 
   const handleAddItem = async (item) => {
     try {
       const newItemId = await addToList(user.uid, item);
       const newItem = { ...item, id: newItemId };
       setItems([...items, newItem]);
-      setAlertMessage(`${item.name} added to shopping list.`);
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-        setAlertMessage("");
-      }, 1000);
+      handleAlert(`${item.name} added to shopping list.`);
     } catch (error) {
+      handleWarning(`Error adding ${item.name} to your shopping list.`);
       console.error("Error adding item: ", error);
     }
   };
@@ -41,13 +39,9 @@ export default function Page() {
     try {
       await removeFromList(user.uid, itemId);
       setItems(items.filter((item) => item.id !== itemId));
-      setAlertMessage("Item removed from shopping list.");
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-        setAlertMessage("");
-      }, 1000);
+      handleAlert("Item removed from shopping list.");
     } catch (error) {
+      handleWarning("Error removing item from your shopping list.");
       console.error("Error removing item: ", error);
     }
   };
@@ -57,15 +51,29 @@ export default function Page() {
       await addItem(user.uid, item);
       await removeFromList(user.uid, itemId);
       setItems(items.filter((item) => item.id !== itemId));
-      setAlertMessage(`${item.name} added to inventory.`);
-      setShowAlert(true);
-      setTimeout(() => {
-        setShowAlert(false);
-        setAlertMessage("");
-      }, 1000);
+      handleAlert(`${item.name} added to inventory.`);
     } catch (error) {
+      handleWarning(`Error adding ${item.name} to your inventory.`);
       console.error("Error adding item: ", error);
     }
+  };
+
+  const handleAlert = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+      setAlertMessage("");
+    }, 1000);
+  };
+
+  const handleWarning = (message) => {
+    setWarningMessage(message);
+    setShowWarning(true);
+    setTimeout(() => {
+      setShowWarning(false);
+      setWarningMessage("");
+    }, 1000);
   };
 
   async function loadItems() {
@@ -95,6 +103,14 @@ export default function Page() {
             className="alert alert-info shadow-lg mx-2 mb-2 w-auto max-w-lg md:hidden "
           >
             <div className="">{alertMessage}</div>
+          </div>
+        )}
+        {showWarning && (
+          <div
+            role="alert"
+            className="alert alert-error shadow-lg mx-2 mb-2 w-auto max-w-lg md:hidden "
+          >
+            <div className="">{warningMessage}</div>
           </div>
         )}
         <ShoppingList
