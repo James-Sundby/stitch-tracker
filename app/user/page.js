@@ -38,7 +38,7 @@ export default function User() {
     <div className="flex flex-col min-h-screen items-center">
       <NavBar />
       <main className="flex-1">
-        {user != null ? (
+        {user.displayName != null ? (
           <p className="text-4xl m-4 font-bold ">Welcome {user.displayName}</p>
         ) : (
           <p className="text-4xl m-4 font-bold ">Welcome</p>
