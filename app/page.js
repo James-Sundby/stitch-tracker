@@ -1,7 +1,6 @@
 "use client";
 
 import { useUserAuth } from "./_utils/auth-context";
-import Link from "next/link";
 import NavBar from "./components/nav-bar";
 import Footer from "./components/footer";
 
