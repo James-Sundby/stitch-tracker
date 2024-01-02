@@ -7,16 +7,22 @@ export default function ItemList({ items, onDelete }) {
   const [sortBy, setSortBy] = useState("colorCode");
   const itemsData = [...items];
 
-  if (sortBy === "colorCode") {
-    itemsData.sort((a, b) => a.colorCode.localeCompare(b.colorCode));
-  } else if (sortBy === "category") {
-    itemsData.sort((a, b) => {
-      if (a.category === b.category) {
-        return a.colorCode.localeCompare(b.colorCode);
-      }
-      return a.category.localeCompare(b.category);
-    });
+  function isNumeric(value) {
+    return !isNaN(value) && !isNaN(parseFloat(value));
   }
+
+  function compareNumericStrings(a, b) {
+    return parseFloat(a) - parseFloat(b);
+  }
+
+  itemsData.sort((a, b) => {
+    if (sortBy === "category" && a.category !== b.category) {
+      return a.category.localeCompare(b.category);
+    }
+    return (isNumeric(a.colorCode) && isNumeric(b.colorCode))
+      ? compareNumericStrings(a.colorCode, b.colorCode)
+      : a.colorCode.localeCompare(b.colorCode);
+  });
 
   return (
     <>
