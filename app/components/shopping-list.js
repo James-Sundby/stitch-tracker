@@ -19,7 +19,6 @@ export default function ShoppingList({ items, onDelete, onPurchase }) {
     if (sortBy === "category" && a.category !== b.category) {
       return a.category.localeCompare(b.category);
     }
-    // Compare colorCode numerically if both are numeric, else use string comparison
     return (isNumeric(a.colorCode) && isNumeric(b.colorCode))
       ? compareNumericStrings(a.colorCode, b.colorCode)
       : a.colorCode.localeCompare(b.colorCode);

@@ -6,6 +6,8 @@ import {
   query,
   deleteDoc,
   doc,
+  where,
+  updateDoc
 } from "firebase/firestore";
 
 export const getInventory = async (userId) => {
@@ -35,8 +37,18 @@ export const addItem = async (userId, item) => {
     }
 
     const itemsCollection = collection(db, "users", userId, "items");
-    const docRef = await addDoc(itemsCollection, item);
-    return docRef.id;
+    const q = query(itemsCollection, where("colorCode", "==", item.colorCode));
+    const querySnapshot = await getDocs(q);
+
+    if (!querySnapshot.empty) {
+      let existingItem = querySnapshot.docs[0];
+      let newQuantity = existingItem.data().quantity + item.quantity;
+      await updateDoc(doc(db, "users", userId, "items", existingItem.id), { quantity: newQuantity });
+      return existingItem.id;
+    } else {
+      const docRef = await addDoc(itemsCollection, item);
+      return docRef.id;
+    }
   } catch (error) {
     console.error("Error adding item to database.", error);
     window.alert("Error adding item to database.");
