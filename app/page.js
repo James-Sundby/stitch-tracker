@@ -5,11 +5,19 @@ import NavBar from "./components/nav-bar";
 import Footer from "./components/footer";
 
 export default function Home() {
-  const { user, gitHubSignIn, firebaseSignOut } = useUserAuth();
+  const { user, gitHubSignIn, googleSignIn, firebaseSignOut } = useUserAuth();
 
-  async function handleSignIn() {
+  async function handleGitHubSignIn() {
     try {
       await gitHubSignIn();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleGoogleSignIn() {
+    try {
+      await googleSignIn();
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +36,7 @@ export default function Home() {
       <NavBar />
       <main className="hero flex-1">
         <article className="hero-content text-center">
-          <section className="max-w-md">
+          <section className="max-w-lg">
             <h1 className="text-7xl font-bold">Welcome</h1>
             <p className="py-6">
               Stitch Tracker is a free, web-based tool for cross-stitchers
@@ -43,10 +51,10 @@ export default function Home() {
                 Sign Out
               </button>
             ) : (
-              <>
+              <div className="flex gap-4 justify-center">
                 <button
                   aria-label="Sign In with GitHub"
-                  onClick={handleSignIn}
+                  onClick={handleGitHubSignIn}
                   className="btn btn-primary"
                 >
                   <svg
@@ -59,7 +67,21 @@ export default function Home() {
                   </svg>
                   Sign in with GitHub
                 </button>
-              </>
+                <button
+                  aria-label="Sign In with GitHub"
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-primary"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="1em"
+                    viewBox="0 0 488 512"
+                    className="inline-block w-5 h-5 stroke-current fill-primary-content"
+                  >
+                    <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" /></svg>
+                  Sign in with Google
+                </button>
+              </div>
             )}
           </section>
         </article>
