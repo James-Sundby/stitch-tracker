@@ -51,7 +51,7 @@ export default function Home() {
                 Sign Out
               </button>
             ) : (
-              <div className="flex gap-4 justify-center">
+              <div className="flex flex-col md:flex-row gap-4 justify-center">
                 <button
                   aria-label="Sign In with GitHub"
                   onClick={handleGitHubSignIn}
