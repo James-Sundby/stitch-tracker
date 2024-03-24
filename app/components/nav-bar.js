@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
@@ -33,7 +34,7 @@ export default function NavBar() {
               aria-label="User menu"
             >
               <figure className="w-8 mask mask-squircle">
-                <img src={user.photoURL} alt="user avatar" />
+                <Image src={user.photoURL} alt="user avatar" />
               </figure>
             </label>
             <ul
