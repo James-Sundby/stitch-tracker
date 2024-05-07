@@ -34,7 +34,12 @@ export default function NavBar() {
               aria-label="User menu"
             >
               <figure className="w-8 mask mask-squircle">
-                <Image src={user.photoURL} alt="user avatar" />
+                <Image
+                  src={user.photoURL}
+                  alt="user avatar"
+                  width={32}
+                  height={32}
+                />
               </figure>
             </label>
             <ul
@@ -105,14 +110,14 @@ export default function NavBar() {
           >
             <button
               className="btn btn-sm btn-ghost"
-              data-set-theme="dracula"
+              data-set-theme="dim"
               aria-label="default theme"
             >
               Default
             </button>
             <button
               className="btn btn-sm btn-ghost"
-              data-set-theme="cupcake"
+              data-set-theme="corporate"
               aria-label="light theme"
             >
               Light

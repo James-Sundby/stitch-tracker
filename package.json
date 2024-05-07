@@ -11,14 +11,14 @@
   "dependencies": {
     "encoding": "^0.1.13",
     "firebase": "^10.5.2",
-    "next": "14.0.1",
+    "next": "^14.2.3",
     "react": "^18",
     "react-dom": "^18",
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
-    "daisyui": "^3.9.4",
+    "daisyui": "^4.10.5",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
     "postcss": "^8",

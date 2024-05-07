@@ -9,11 +9,11 @@ export default function Item({
 }) {
   return (
     <li>
-      <div className="card bg-base-200 shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active">
+      <div className="card bg-base-200  shadow-xl max-w-lg mx-2 mb-2 cursor-pointer hover:btn-active">
         <div className="card-body p-4 flex-row justify-between">
           <div>
             <header className="card-title text-2xl pb-2 ">
-              {colorCode} {name}
+              {colorCode} - {name}
             </header>
             <p>
               Qty: {quantity} | Category: {category}

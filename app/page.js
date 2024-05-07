@@ -34,8 +34,12 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <NavBar />
-      <main className="hero flex-1">
-        <article className="hero-content text-center">
+      <main
+        className="hero flex-1"
+        style={{ backgroundImage: "url('/background.webp')" }}
+      >
+        <div className="hero-overlay bg-opacity-50"></div>
+        <article className="hero-content text-center bg-base-100 rounded-xl">
           <section className="max-w-lg">
             <h1 className="text-7xl font-bold">Welcome</h1>
             <p className="py-6">

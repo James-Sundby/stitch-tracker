@@ -6,7 +6,7 @@ export default function NewItem({ onAddItem }) {
   const [colorCode, setColorCode] = useState("");
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
-  const [category, setCategory] = useState("red");
+  const [category, setCategory] = useState("Reds");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ export default function NewItem({ onAddItem }) {
     setColorCode("");
     setName("");
     setQuantity(1);
-    setCategory("red");
+    setCategory("Reds");
   };
 
   const handleColorCodeChange = (event) => {
@@ -37,7 +37,7 @@ export default function NewItem({ onAddItem }) {
   };
 
   return (
-    <div className="max-w-lg mx-2 mb-2">
+    <div className="max-w-lg mx-2 mb-8 shadow-xl">
       <div className="collapse bg-base-200 collapse-arrow">
         <input type="checkbox" className="peer" />
         <div className="collapse-title bg-primary uppercase font-semibold text-primary-content peer-checked:bg-secondary flex items-center">
