@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧵 Stitch Tracker
 
-## Getting Started
+A web application for tracking cross-stitch supplies and shopping lists. Designed to help crafters manage their inventory and avoid buying duplicate floss.
 
-First, run the development server:
+![Stitch Tracker Screenshot](./images/inventory.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Inventory Management** – Keep track of owned floss and supplies.
+- **Shopping List** – Add missing colors to a shopping list.
+- **Google Authentication** – Secure login using Firebase.
+- **Responsive UI** – Optimized for mobile and desktop.
+- **Dark Mode Support** – (If applicable)
+
+## 📸 Screenshots
+
+| Home Screen                             | Dashboard                            |
+| --------------------------------------- | ------------------------------------ |
+| ![Home Screen](./images/homescreen.png) | ![Dashboard](./images/dashboard.png) |
+
+| Inventory Screen                     | Shopping List                                |
+| ------------------------------------ | -------------------------------------------- |
+| ![Inventory](./images/inventory.png) | ![Shopping List](./images/shopping-list.png) |
+
+## 🚀 Installation & Setup
+
+To run this project locally, follow these steps:
+
+### 1️⃣ Clone the Repository
+
+```sh
+git clone https://github.com/yourusername/stitch-tracker.git
+cd stitch-tracker
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```sh
+npm install
+# or
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 3️⃣ Set Up Firebase
 
-## Learn More
+Create a .env.local file and add your Firebase API keys:
 
-To learn more about Next.js, take a look at the following resources:
+```in
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(If using Firestore, also set up database rules.)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### 4️⃣ Run the App
 
-## Deploy on Vercel
+```sh
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# or
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+yarn dev
+```
+
+The app will be available at http://localhost:3000
+
+## 🛠️ Tech Stack
+
+- Next.js – React framework
+- Firebase – User authentication & Firestore database
+- Tailwind CSS & DaisyUI – Styling
+
+## 🤝 Contributing
+
+If you have suggestions or improvements, feel free to open an issue or submit a pull request!
+
+## 📜 License
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
