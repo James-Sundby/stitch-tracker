@@ -5,8 +5,8 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: ["cupcake", "dark", "dracula", "forest", "cyberpunk", "night", "dim", "corporate"],
-  },
+  // plugins: [require("daisyui")],
+  // daisyui: {
+  //   themes: ["cupcake", "dark", "dracula", "forest", "cyberpunk", "night", "dim", "corporate"],
+  // },
 };
