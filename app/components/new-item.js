@@ -51,7 +51,7 @@ export default function NewItem({ onAddItem }) {
               required
               onChange={handleColorCodeChange}
               value={colorCode}
-              className="input input-bordered"
+              className="input input-bordered w-full"
             />
             <input
               placeholder="Item Name"
@@ -59,7 +59,7 @@ export default function NewItem({ onAddItem }) {
               required
               onChange={handleNameChange}
               value={name}
-              className="input input-bordered"
+              className="input input-bordered w-full"
             />
             <div className="flex space-x-2">
               <input
@@ -75,7 +75,7 @@ export default function NewItem({ onAddItem }) {
                 required
                 onChange={handleCategoryChange}
                 value={category}
-                className="select select-bordered flex-grow"
+                className="select select-bordered grow"
               >
                 <option disabled>Select a Category</option>
                 <option value="Reds">Reds</option>
@@ -91,7 +91,7 @@ export default function NewItem({ onAddItem }) {
                 <option value="Neutrals">Neutrals</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-primary flex-1 border-">
+            <button type="submit" className="btn btn-primary ">
               +
             </button>
           </form>
