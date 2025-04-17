@@ -77,6 +77,7 @@ export default function Page() {
     if (user) {
       loadItems();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   return user ? (
